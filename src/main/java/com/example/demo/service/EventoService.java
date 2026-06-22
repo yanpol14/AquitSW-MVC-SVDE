@@ -4,5 +4,5 @@ import java.util.List;
 import com.example.demo.model.Evento;
 
 public interface EventoService {
-    public List<Evento> ListarEventos(String idCategoria);
+    List<Evento> ListarEventos(int idCategoria);
 }

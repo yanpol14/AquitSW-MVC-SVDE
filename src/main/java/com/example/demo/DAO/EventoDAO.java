@@ -4,7 +4,6 @@ import java.util.List;
 import com.example.demo.model.Evento;
 
 public interface EventoDAO {
-
-    List<Evento> ListarEventos(String idCategoria);
-
+    // CORREGIDO: Firma lista para recibir el id de filtro
+    List<Evento> ListarEventos(int idCategoria);
 }

@@ -1,9 +1,10 @@
 package com.example.demo.repository;
 
 import java.util.List;
-import java.sql.ResultSet; // <-- ESTA IMPORTACIÓN CURA EL COLOR ROJO EN LOS rs.
+import java.time.LocalDate;
 
 import com.example.demo.DAO.EventoDAO;
+import com.example.demo.model.Categoria;
 import com.example.demo.model.Evento;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,28 +19,53 @@ public class EventoRepository implements EventoDAO {
     }
 
     public final RowMapper<Evento> EventoRowMapper = (rs, rowNum) -> {
-        return new Evento(
+        Evento evento = new Evento(
                 rs.getInt("id_evento"),
                 rs.getInt("id_categoria"),
-                rs.getString("id_evento"),
                 rs.getString("titulo"),
                 rs.getString("descripcion"),
-                rs.getDate("fecha_evento"),
-                rs.getTime("hora"),
-                rs.getDouble("precio"),         // Corregido: "precio" (antes prcio)
+                rs.getObject("fecha_evento", LocalDate.class),
+                rs.getDouble("precio"),
                 rs.getString("lugar"),
                 rs.getInt("aforo_total"),
-                rs.getInt("aforo_disponible"),     // Corregido: "aforo_disponible" (antes disponile)
-                rs.getString("imagen_url"),         // Corregido: "imagen_url" (antes utl)
-                rs.getInt("estado"),
-                rs.getInt("tipo_entrada")
+                rs.getInt("aforo_disponible"),
+                rs.getString("imagen_url"),
+                rs.getInt("estado") == 1
         );
+        Categoria categoria = new Categoria(
+                rs.getInt("id_categoria"),
+                rs.getString("nombre_categoria"),
+                rs.getString("desc_categoria"),
+                rs.getInt("estado_categoria") == 1
+        );
+
+        evento.setCategoria(categoria);
+        return evento;
     };
 
     @Override
-    public List<Evento> ListarEventos(String idCategoria){
-        // Corregido "enevnto" por "evento" y añadida la cláusula WHERE funcional
-        String query = "SELECT * FROM evento WHERE id_categoria = ?";
-        return jdbcTemplate.query(query, EventoRowMapper, idCategoria);
+    // CORREGIDO: Añadida la lógica de filtrado dinámico
+    public List<Evento> ListarEventos(int idCategoria) {
+        if (idCategoria <= 0) {
+            // Trae todos los eventos activos
+            String query = "SELECT e.*, " +
+                    "c.nombre AS nombre_categoria, " +
+                    "c.descripcion AS desc_categoria, " +
+                    "c.estado AS estado_categoria " +
+                    "FROM evento e " +
+                    "INNER JOIN categoria c ON e.id_categoria = c.id_categoria " +
+                    "WHERE e.estado = 1";
+            return jdbcTemplate.query(query, EventoRowMapper);
+        } else {
+            // Filtra exclusivamente por el ID de la categoría seleccionada
+            String query = "SELECT e.*, " +
+                    "c.nombre AS nombre_categoria, " +
+                    "c.descripcion AS desc_categoria, " +
+                    "c.estado AS estado_categoria " +
+                    "FROM evento e " +
+                    "INNER JOIN categoria c ON e.id_categoria = c.id_categoria " +
+                    "WHERE e.id_categoria = ? AND e.estado = 1";
+            return jdbcTemplate.query(query, EventoRowMapper, idCategoria);
+        }
     }
 }

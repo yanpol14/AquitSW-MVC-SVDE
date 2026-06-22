@@ -1,6 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%-- Inclusión del Header --%>
 <jsp:include page="componentes/header.jsp" />
 
 <main class="w-100 container-fluid p-0">
@@ -107,11 +107,45 @@
         </div>
 
         <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
-            <button class="categoria-btn btn btn-outline-warning fw-bold active" data-categoria="peliculas">Películas</button>
-            <button class="categoria-btn btn btn-outline-warning fw-bold" data-categoria="conciertos">Conciertos</button>
-            <button class="categoria-btn btn btn-outline-warning fw-bold" data-categoria="entretenimiento">Entretenimiento</button>
-            <button class="categoria-btn btn btn-outline-warning fw-bold" data-categoria="teatro">Teatro</button>
+
+            <a href="/index?idCategoria=0"
+               class="btn btn-outline-warning fw-bold ${param.idCategoria == null || param.idCategoria == 0 ? 'active' : ''}">
+               Todos
+            </a>
+
+            <c:forEach items="${listCategorias}" var="cat">
+                <a href="/index?idCategoria=${cat.id_categoria}"
+                   class="btn btn-outline-warning fw-bold ${param.idCategoria == cat.id_categoria ? 'active' : ''}">
+                   ${cat.nombre}
+                </a>
+            </c:forEach>
+
         </div>
+
+       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mb-5">
+           <c:forEach items="${listEvento}" var="eventos">
+               <div class="col">
+                   <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden bg-white">
+                       <img src="${eventos.imagen_url}" class="card-img-top" alt="${eventos.titulo}" style="height: 220px; object-fit: cover;">
+                       <div class="card-body d-flex flex-column p-3">
+                           <div class="d-flex justify-content-start mb-2">
+                               <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1 fw-semibold text-wrap text-end">
+                                   ${eventos.categoria.nombre}
+                               </span>
+                           </div>
+                           <h5 class="card-title fw-bold fs-6 text-dark mb-2">${eventos.titulo}</h5>
+                           <p class="card-text text-muted small mb-1">
+                               <i class="bi bi-calendar3 me-1"></i> ${eventos.fecha_evento}
+                           </p>
+                           <p class="fw-bold text-danger fs-5 mt-auto mb-3">S/ ${eventos.precio}</p>
+                           <a href="#" class="btn btn-warning text-dark fw-bold btn-sm w-100 rounded-pill py-2">
+                               Adquirir Entradas
+                           </a>
+                       </div>
+                   </div>
+               </div>
+           </c:forEach>
+       </div>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center" id="card-eventos">
             <%-- Los eventos se cargarán dinámicamente mediante jsgeneral.js --%>
