@@ -1,0 +1,238 @@
+/* ==========================================================================
+   NAVBAR: PLOMO / GRIS MEDIO TRASLÚCIDO (EFECTO GLASSMORPHISM)
+   ========================================================================== */
+.navbar-bg {
+    background: rgba(108, 117, 125, 0.75) !important; /* Gris plomo con transparencia */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque premium */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.3s ease;
+}
+
+/* Letras del menú en blanco para que contrasten perfectamente con el plomo */
+.navbar-bg .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-bg .nav-link:hover,
+.navbar-bg .nav-link.active {
+    color: #00f2fe !important; /* Un tono cian/verde agua brillante al pasar el mouse */
+}
+
+.navbar-bg .navbar-brand {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   CARRUSEL / BANNER PRINCIPAL
+   ========================================================================== */
+.carousel-item img {
+    height: 70vh;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.85); 
+}
+
+.carousel-caption-container {
+    position: absolute;
+    z-index: 10;
+    max-width: 550px;
+    padding-left: 90px !important;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption-container {
+        padding-left: 60px !important;
+        max-width: 80%;
+    }
+}
+
+/* Controles del carrusel */
+.btn-carrusel-prev, .btn-carrusel-next { width: 75px; opacity: 1; }
+.btn-carrusel-prev { justify-content: flex-start; padding-left: 20px; }
+.btn-carrusel-next { justify-content: flex-end; padding-right: 20px; }
+
+.icono-circular {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    color: #ffffff;
+    background-color: rgba(216, 27, 96, 0.6); 
+    border: 1px solid rgba(216, 27, 96, 0.8);
+    transition: all 0.3s ease;
+}
+
+.btn-carrusel-prev:hover .icono-circular,
+.btn-carrusel-next:hover .icono-circular {
+    background-color: #d81b60;
+    border-color: #ff6097;
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   ESTILOS DEL CATÁLOGO: COLOR CLARO REFRESCANTE (VERDE MENTA / SAGE)
+   ========================================================================== */
+
+/* Fondo general sutil: Un gris claro con un hermoso matiz verde oliva/menta muy suave */
+.body-catalogo {
+    background-color: #eef3f0; 
+}
+
+/* Contenedor del catálogo con un degradado estético que va de verde menta pastel a gris claro */
+.catalogo-section {
+    background: linear-gradient(135deg, #e1ebe6 0%, #eef3f0 100%) !important;
+    min-height: 80vh;
+    padding: 40px 0;
+}
+
+/* Título de la sección en un color verde bosque oscuro elegante */
+.catalogo-section h1 {
+    color: #2c3e35 !important;
+    font-weight: 800;
+}
+
+/* Badge superior "Catálogo Completo" adaptado al tono verde */
+.badge-catalogo {
+    letter-spacing: 0.5px;
+    color: #2b7a5e !important;
+    border-color: #2b7a5e !important;
+    background-color: rgba(43, 122, 94, 0.1) !important;
+}
+
+/* --------------------------------------------------------------------------
+   BOTONES DE FILTRADO (ESTILO PASTEL & MENTA)
+   -------------------------------------------------------------------------- */
+
+/* Botones apagados: Blancos limpios con borde verde salvia suave */
+.filter-movie-btn {
+    background-color: #ffffff !important;
+    color: #4a5d55 !important;
+    border: 1px solid #cbd6d0 !important;
+    opacity: 1 !important;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.filter-movie-btn:hover {
+    background-color: #e2ede8 !important;
+    color: #1c2e26 !important;
+}
+
+/* Botón Activo: Elige tu favorito quitando las barras (/) */
+.btn-active-pink, 
+.filter-movie-btn.active {
+    /* Opción A: Verde Menta Intenso y sofisticado (Recomendado para el look verde) */
+    background-color: #2b7a5e !important;
+    color: #ffffff !important;
+    border: 1px solid #2b7a5e !important;
+    box-shadow: 0 4px 12px rgba(43, 122, 94, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   INPUTS Y SELECTORES (CONTROL DE BUSQUEDA)
+   -------------------------------------------------------------------------- */
+#input-buscar-pelicula {
+    background-color: #ffffff !important;
+    color: #2c3e35 !important;
+    border: 1px solid #cbd6d0 !important;
+}
+
+#input-buscar-pelicula::placeholder {
+    color: #7fa091 !important;
+}
+
+.select-custom-catalogo {
+    background-color: #ffffff !important;
+    color: #2c3e35 !important;
+    border: 1px solid #cbd6d0 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%232c3e35' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+.select-custom-catalogo option {
+    background-color: #ffffff !important;
+    color: #2c3e35 !important;
+}
+
+/* ==========================================================================
+   TARJETAS DE PELÍCULAS (MÓDULO DINÁMICO)
+   ========================================================================== */
+.catalogo-section .card {
+    background-color: #ffffff !important;
+    border: 1px solid #d4e0da !important;
+    box-shadow: 0 6px 16px rgba(44, 62, 53, 0.06) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalogo-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(44, 62, 53, 0.12) !important;
+}
+
+.catalogo-section .card-title {
+    color: #1c2e26 !important;
+}
+
+.catalogo-section .card-text {
+    color: #53665c !important;
+}
+
+/* Pequeño tag de género dentro de las tarjetas */
+.card .badge {
+    background-color: rgba(43, 122, 94, 0.08) !important;
+    color: #2b7a5e !important;
+}
+
+/* Botón comprar entrada de la tarjeta */
+.catalogo-section .card .btn {
+    background-color: #2b7a5e !important;
+    border: none !important;
+    color: #ffffff !important;
+    transition: background 0.2s ease;
+}
+
+.catalogo-section .card .btn:hover {
+    background-color: #1f5944 !important;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.custom-footer {
+    background-color: #1e2522; /* Plomo oscuro con matiz verde pino */
+    color: #9fae00;
+    color: #a4b3ab;
+    font-family: sans-serif;
+}
+
+.custom-footer .footer-title {
+    color: #00f2fe; /* Color cyan para iluminar los títulos del footer */
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+.custom-footer .footer-links a {
+    color: #a4b3ab;
+    text-decoration: none !important;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.custom-footer .footer-links a:hover {
+    color: #ffffff;
+}
+
+.custom-footer .footer-divider {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.custom-footer .footer-copyright {
+    color: #5e6b64;
+    font-size: 13px;
+}

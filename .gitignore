@@ -1,0 +1,49 @@
+# --- MAVEN (Archivos de compilación y empaquetado) ---
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+pom.xml.warn
+release.properties
+dependency-reduced-pom.xml
+.mvn/wrapper/maven-wrapper.jar
+
+# Excepciones específicas de Maven (por si acaso)
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# --- INTELLIJ IDEA ---
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# --- DOCUMENTACIÓN (Opcional, quítalo si SÍ quieres subir el HELP.md) ---
+HELP.md
+
+# --- STS (Spring Tool Suite) ---
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# --- NETBEANS ---
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# --- VS CODE ---
+.vscode/
+
+# --- SISTEMA OPERATIVO (Los clásicos archivos ocultos molestos) ---
+.DS_Store
+Thumbs.db
