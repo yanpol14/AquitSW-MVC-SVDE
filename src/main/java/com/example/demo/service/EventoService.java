@@ -5,4 +5,8 @@ import com.example.demo.model.Evento;
 
 public interface EventoService {
     List<Evento> ListarEventos(int idCategoria);
+
+
+    List<Evento> MostrarDestacados();
+
 }

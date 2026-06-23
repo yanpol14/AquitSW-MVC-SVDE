@@ -6,7 +6,6 @@
 <main class="w-100 container-fluid p-0">
 
     <div id="carouselExampleCaptions" class="carousel slide shadow-sm position-relative" data-bs-ride="carousel" data-bs-interval="3000">
-
         <div class="carousel-indicators mb-4">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -14,10 +13,8 @@
         </div>
 
         <div class="carousel-inner">
-
             <div class="carousel-item active position-relative">
                 <img src="/imagenes/banners/banner1.jpg" class="d-block w-100" alt="Banner 1" style="min-height: 450px; object-fit: cover; filter: brightness(0.6);">
-
                 <div class="carousel-caption-container text-start d-flex flex-column justify-content-center h-100 bottom-0 start-0 ps-5">
                     <div class="mb-3">
                         <span class="badge text-white px-3 py-2 text-uppercase fw-bold" style="background: linear-gradient(90deg, #ff007f, #8a2be2); letter-spacing: 1px;">
@@ -57,7 +54,6 @@
             <span class="icono-circular"><i class="bi bi-chevron-left"></i></span>
             <span class="visually-hidden">Previous</span>
         </button>
-
         <button class="carousel-control-next btn-carrusel-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
             <span class="icono-circular"><i class="bi bi-chevron-right"></i></span>
             <span class="visually-hidden">Next</span>
@@ -66,64 +62,47 @@
 
     <section class="container my-5">
         <div class="row align-items-center justify-content-center">
-
             <div class="col-md-10 col-lg-5 mb-4 mb-lg-0 text-center text-lg-start">
                 <h1 class="fw-bold text-danger mb-3">¡Bienvenido!</h1>
                 <p class="lead mb-4 text-secondary">
-                    Tu próxima experiencia comienza aquí. Encuentra y compra entradas para los mejores eventos de forma rápida, sencilla y segura. Descubre conciertos, espectáculos y actividades únicas en una sola plataforma.
+                    Tu próxima experiencia comienza aquí. Encuentra y compra entradas para los mejores eventos de forma rápida, sencilla y segura.
                 </p>
-
                 <ul class="list-group list-group-flush mb-4 d-inline-block text-start w-100" style="max-width: 450px;">
                     <li class="list-group-item bg-transparent px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Compra rápida y segura</li>
                     <li class="list-group-item bg-transparent px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Eventos para todos los gustos</li>
                     <li class="list-group-item bg-transparent px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Acceso digital inmediato</li>
-                    <li class="list-group-item bg-transparent px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Promociones exclusivas</li>
+                    <li class="list-group-item bg-transparent px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Promociones exclusivos</li>
                 </ul>
-
                 <div class="mt-2">
                     <a href="catalogo.jsp" class="btn btn-dark btn-lg fw-bold px-4 py-2 shadow-sm">Explora nuestro CATÁLOGO</a>
                 </div>
             </div>
-
             <div class="col-lg-1 d-none d-lg-block"></div>
-
             <div class="col-md-10 col-lg-5 text-center">
-                <img src="img/publicidad.png" class="img-fluid rounded shadow-lg" alt="Publicidad TicketLandia" style="max-height: 450px; object-fit: cover;">
+                <img src="/imagenes/banners/publicidad.png" class="img-fluid rounded shadow-lg" alt="Publicidad TicketLandia" style="max-height: 450px; object-fit: cover;">
             </div>
-
         </div>
     </section>
 
     <section class="promo text-center py-5 bg-light rounded mb-5">
         <h2 class="fw-bold text-danger">Tu próximo evento comienza aquí</h2>
-        <p class="lead text-warning">Compra entradas para conciertos, teatro, deportes y mucho más en una plataforma rápida, segura y confiable.</p>
-        <a class="btn btn-panaderia btn-lg fw-bold shadow" href="catalogo.jsp">Ver Eventos Disponibles</a>
+        <p class="lead text-success">Compra entradas para conciertos, teatro, deportes y mucho más.</p>
+        <a class="btn btn-outline-danger btn-lg fw-bold shadow" href="catalogo.jsp">Ver Eventos Disponibles</a>
     </section>
 
     <section class="container mb-5">
+
+        <hr class="my-5 opacity-25">
+
         <div class="text-center mb-4">
             <h2 class="fw-bold text-danger">Eventos Destacados</h2>
-            <p class="text-muted">Elige una categoría para los eventos más populares...</p>
+            <p class="text-muted">Los eventos más populares y recomendados de la semana</p>
         </div>
 
-        <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
-
-            <button type="button" data-id="0"
-               class="btn-filtro btn btn-outline-warning fw-bold active">
-               Todos
-            </button>
-
-            <c:forEach items="${listCategorias}" var="cat">
-                <button type="button" data-id="${cat.id_categoria}"
-                   class="btn-filtro btn btn-outline-warning fw-bold">
-                   ${cat.nombre}
-                </button>
-            </c:forEach>
-
-        </div>
+        <hr class="my-5 opacity-25">
 
        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mb-5" id="contenedor-tarjetas">
-           <c:forEach items="${listEvento}" var="eventos">
+           <c:forEach items="${listDestacados}" var="eventos">
                <div class="col">
                    <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden bg-white">
                        <img src="${eventos.imagen_url}" class="card-img-top" alt="${eventos.titulo}" style="height: 220px; object-fit: cover;">
@@ -146,71 +125,7 @@
                </div>
            </c:forEach>
        </div>
-
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center" id="card-eventos">
-            <%-- Los eventos se cargarán dinámicamente mediante jsgeneral.js --%>
-        </div>
     </section>
 </main>
 
-<%-- Inclusión del Footer --%>
 <jsp:include page="componentes/footer.jsp" />
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const botones = document.querySelectorAll(".btn-filtro");
-    const contenedor = document.getElementById("contenedor-tarjetas");
-
-    botones.forEach(boton => {
-        boton.addEventListener("click", function () {
-            // Cambiar la clase activa visual en los botones sin mover la página
-            botones.forEach(b => b.classList.remove("active"));
-            this.classList.add("active");
-
-            const idCategoria = this.getAttribute("data-id");
-
-            // Llamada al endpoint de Spring en segundo plano
-            fetch('/api/eventos?idCategoria=' + idCategoria)
-                .then(response => response.json())
-                .then(eventos => {
-                    contenedor.innerHTML = ""; // Limpiar tarjetas anteriores
-
-                    if (eventos.length === 0) {
-                        contenedor.innerHTML = '<div class="text-center w-100 my-5 text-muted"><p class="fs-5">No hay eventos disponibles en esta categoría.</p></div>';
-                        return;
-                    }
-
-                    // Renderizar las nuevas tarjetas dinámicamente sin mover la pantalla
-                    eventos.forEach(ev => {
-                        const categoriaNombre = ev.categoria && ev.categoria.nombre ? ev.categoria.nombre : "General";
-
-                        const cardHtml = `
-                           <div class="col">
-                               <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden bg-white">
-                                   <img src="\${ev.imagen_url}" class="card-img-top" alt="\${ev.titulo}" style="height: 220px; object-fit: cover;">
-                                   <div class="card-body d-flex flex-column p-3">
-                                       <div class="d-flex justify-content-start mb-2">
-                                           <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1 fw-semibold text-wrap text-end">
-                                               \${categoriaNombre}
-                                           </span>
-                                       </div>
-                                       <h5 class="card-title fw-bold fs-6 text-dark mb-2">\${ev.titulo}</h5>
-                                       <p class="card-text text-muted small mb-1">
-                                           <i class="bi bi-calendar3 me-1"></i> \${ev.fecha_evento}
-                                       </p>
-                                       <p class="fw-bold text-danger fs-5 mt-auto mb-3">S/ \${ev.precio}</p>
-                                       <a href="#" class="btn btn-warning text-dark fw-bold btn-sm w-100 rounded-pill py-2">
-                                           Adquirir Entradas
-                                       </a>
-                                   </div>
-                               </div>
-                           </div>
-                        `;
-                        contenedor.innerHTML += cardHtml;
-                    });
-                })
-                .catch(error => console.error("Error al filtrar eventos:", error));
-        });
-    });
-});
-</script>

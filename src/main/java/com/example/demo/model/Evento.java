@@ -14,6 +14,7 @@ public class Evento {
     private int aforo_disponible;
     private String imagen_url; // Cambiado para que coincida exactamente con la BD
     private boolean estado;
+    private boolean destacado;
 
     private Categoria categoria;
 
@@ -131,6 +132,14 @@ public class Evento {
 
     public void setCategoria(Categoria categoria){
         this.categoria = categoria;
+    }
+
+    public boolean getDestacado(){
+        return destacado;
+    }
+
+    public void setDetacado(boolean destacado){
+        this.destacado = destacado;
     }
 
 }

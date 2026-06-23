@@ -43,27 +43,27 @@ INSERT INTO usuario (nombre, apellido_paterno, apellido_materno, email, contrase
 ('Ricardo', 'Guerrero', 'Paredes', 'ricardo.guerrero@email.com', 'scrypt_hash_19', 'CLIENTE', 1, '2026-03-22'),
 ('Mariana', 'Salinas', 'Fuentes', 'mariana.salinas@email.com', 'scrypt_hash_20', 'CLIENTE', 1, '2026-03-25');
 
-INSERT INTO evento (id_categoria, titulo, descripcion, fecha_evento, hora, precio, lugar, aforo_total, aforo_disponible, imagen_url, estado) VALUES
-(1, 'Rock Fest 2026', 'Concierto con las mejores bandas de rock locales.', '2026-07-15', '20:00:00', 150.00, 'Estadio Nacional', 40000, 39950, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1),
-(2, 'Hamlet: El Clásico', 'Una adaptación moderna del clásico de Shakespeare.', '2026-07-20', '19:30:00', 80.00, 'Teatro Municipal', 500, 480, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1),
-(3, 'Gran Maratón Ciudad', 'Carrera de 42k por las principales avenidas.', '2026-08-05', '06:00:00', 45.00, 'Parque Central', 5000, 4980, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1),
-(4, 'Cine Bajo las Estrellas', 'Proyección al aire libre de clásicos de culto.', '2026-07-10', '21:00:00', 25.00, 'Plaza de las Artes', 300, 290, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1),
-(5, 'Festival Electrónico Beat', '12 horas continuas del mejor EDM mundial.', '2026-09-12', '16:00:00', 220.00, 'Explanada Verde', 15000, 14900, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1),
-(6, 'Tech Summit 2026', 'Conferencia sobre IA, Blockchain y Desarrollo.', '2026-10-10', '09:00:00', 350.00, 'Centro de Convenciones', 1200, 1180, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1),
-(7, 'Noche de Monólogos', 'El mejor stand-up comedy de la temporada.', '2026-07-18', '22:00:00', 60.00, 'Comedy Club Centro', 150, 140, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1),
-(8, 'El Mago de Oz - Infantil', 'Obra musical mágica pensada para toda la familia.', '2026-07-25', '16:00:00', 40.00, 'Auditorio San Ángel', 600, 570, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1),
-(9, 'Expo Arte Contemporáneo', 'Muestra internacional de pinturas y esculturas.', '2026-08-01', '10:00:00', 15.00, 'Museo de la Ciudad', 2000, 1990, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1),
-(10, 'Mistura & Sabor', 'Feria gastronómica con los mejores chefs.', '2026-08-15', '11:00:00', 30.00, 'Campo Ferial', 10000, 9850, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1),
-(11, 'Gala de Ballet El Lago de los Cisnes', 'Presentación estelar de la compañía nacional.', '2026-08-22', '20:00:00', 120.00, 'Gran Teatro Nacional', 1100, 1080, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1),
-(12, 'Circo de las Maravillas', 'Acrobacias extremas y magia sin animales.', '2026-07-30', '18:30:00', 55.00, 'Carpa Parque Norte', 2500, 2450, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1),
-(13, 'Fashion Week Primavera', 'Lanzamiento de las tendencias de la nueva temporada.', '2026-09-05', '19:00:00', 180.00, 'Hotel Marriott Salón A', 400, 395, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1),
-(14, 'Feria Internacional del Libro', 'Ingreso general y acceso a conferencias de autores.', '2026-07-28', '10:00:00', 10.00, 'Parque de los Próceres', 20000, 19900, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1),
-(15, 'Copa Gaming E-Sports', 'Final nacional de los videojuegos competitivos top.', '2026-09-20', '14:00:00', 70.00, 'Arena Universitaria', 3500, 3420, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1),
-(16, 'Tour Fantasmas del Centro', 'Recorrido peatonal nocturno lleno de mitos.', '2026-07-11', '21:00:00', 35.00, 'Punto de Encuentro Catacumbas', 50, 45, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1),
-(17, 'Yoga Masivo al Amanecer', 'Sesión de relajación frente al mar.', '2026-08-09', '06:30:00', 20.00, 'Malecón de la Costa', 800, 780, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1),
-(18, 'Neon Party Retro', 'Fiesta temática de los 80s y 90s con luces neón.', '2026-07-24', '23:00:00', 50.00, 'Club Discoteca Oxígeno', 600, 550, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1),
-(19, 'Canto por la Paz', 'Concierto coral filantrópico internacional.', '2026-08-30', '17:00:00', 40.00, 'Catedral Metropolitana', 1500, 1480, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1),
-(20, 'Taller de Cerámica Básica', 'Incluye materiales y horneado de tu pieza.', '2026-07-19', '15:00:00', 95.00, 'Casa Taller Barranco', 25, 20, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1);
+INSERT INTO evento (id_categoria, titulo, descripcion, fecha_evento, hora, precio, lugar, aforo_total, aforo_disponible, imagen_url, estado, destacado) VALUES
+(1, 'Rock Fest 2026', 'Concierto con las mejores bandas de rock locales.', '2026-07-15', '20:00:00', 150.00, 'Estadio Nacional', 40000, 39950, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1, 1),
+(2, 'Hamlet: El Clásico', 'Una adaptación moderna del clásico de Shakespeare.', '2026-07-20', '19:30:00', 80.00, 'Teatro Municipal', 500, 480, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1, 1),
+(3, 'Gran Maratón Ciudad', 'Carrera de 42k por las principales avenidas.', '2026-08-05', '06:00:00', 45.00, 'Parque Central', 5000, 4980, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1, 0),
+(4, 'Cine Bajo las Estrellas', 'Proyección al aire libre de clásicos de culto.', '2026-07-10', '21:00:00', 25.00, 'Plaza de las Artes', 300, 290, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1, 0),
+(5, 'Festival Electrónico Beat', '12 horas continuas del mejor EDM mundial.', '2026-09-12', '16:00:00', 220.00, 'Explanada Verde', 15000, 14900, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1, 1),
+(6, 'Tech Summit 2026', 'Conferencia sobre IA, Blockchain y Desarrollo.', '2026-10-10', '09:00:00', 350.00, 'Centro de Convenciones', 1200, 1180, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1, 0),
+(7, 'Noche de Monólogos', 'El mejor stand-up comedy de la temporada.', '2026-07-18', '22:00:00', 60.00, 'Comedy Club Centro', 150, 140, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1, 1),
+(8, 'El Mago de Oz - Infantil', 'Obra musical mágica pensada para toda la familia.', '2026-07-25', '16:00:00', 40.00, 'Auditorio San Ángel', 600, 570, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1, 0),
+(9, 'Expo Arte Contemporáneo', 'Muestra internacional de pinturas y esculturas.', '2026-08-01', '10:00:00', 15.00, 'Museo de la Ciudad', 2000, 1990, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1, 0),
+(10, 'Mistura & Sabor', 'Feria gastronómica con los mejores chefs.', '2026-08-15', '11:00:00', 30.00, 'Campo Ferial', 10000, 9850, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1, 0),
+(11, 'Gala de Ballet El Lago de los Cisnes', 'Presentación estelar de la compañía nacional.', '2026-08-22', '20:00:00', 120.00, 'Gran Teatro Nacional', 1100, 1080, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1, 1),
+(12, 'Circo de las Maravillas', 'Acrobacias extremas y magia sin animales.', '2026-07-30', '18:30:00', 55.00, 'Carpa Parque Norte', 2500, 2450, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1, 0),
+(13, 'Fashion Week Primavera', 'Lanzamiento de las tendencias de la nueva temporada.', '2026-09-05', '19:00:00', 180.00, 'Hotel Marriott Salón A', 400, 395, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1, 0),
+(14, 'Feria Internacional del Libro', 'Ingreso general y acceso a conferencias de autores.', '2026-07-28', '10:00:00', 10.00, 'Parque de los Próceres', 20000, 19900, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1, 1),
+(15, 'Copa Gaming E-Sports', 'Final nacional de los videojuegos competitivos top.', '2026-09-20', '14:00:00', 70.00, 'Arena Universitaria', 3500, 3420, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1, 0),
+(16, 'Tour Fantasmas del Centro', 'Recorrido peatonal nocturno lleno de mitos.', '2026-07-11', '21:00:00', 35.00, 'Punto de Encuentro Catacumbas', 50, 45, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1, 0),
+(17, 'Yoga Masivo al Amanecer', 'Sesión de relajación frente al mar.', '2026-08-09', '06:30:00', 20.00, 'Malecón de la Costa', 800, 780, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1, 0),
+(18, 'Neon Party Retro', 'Fiesta temática de los 80s y 90s con luces neón.', '2026-07-24', '23:00:00', 50.00, 'Club Discoteca Oxígeno', 600, 550, '/imagenes/Conciertos/CuartetoDeNos-12Marzo.webp', 1, 0),
+(19, 'Canto por la Paz', 'Concierto coral filantrópico internacional.', '2026-08-30', '17:00:00', 40.00, 'Catedral Metropolitana', 1500, 1480, '/imagenes/Conciertos/Paulo Londra-29Agosto.webp', 1, 0),
+(20, 'Taller de Cerámica Básica', 'Incluye materiales y horneado de tu pieza.', '2026-07-19', '15:00:00', 95.00, 'Casa Taller Barranco', 25, 20, '/imagenes/Conciertos/Airbag-23Mayo.webp', 1, 0);
 
 INSERT INTO ticket (id_usuario, id_evento, id_categoria, cantidad, subtotal, total, fecha_compra, estado, tipo_pago, detalle) VALUES
 (2, 1, 1, 2, 300.00, 300.00, '2026-06-01', 1, 'TARJETA_CREDITO', 'Zona VIP - Fila A'),

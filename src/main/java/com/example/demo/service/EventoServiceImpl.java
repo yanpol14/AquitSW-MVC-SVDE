@@ -15,8 +15,13 @@ public class EventoServiceImpl implements EventoService {
     }
 
     @Override
-    // CORREGIDO: Pasa el idCategoria hacia el DAO/Repository
     public List<Evento> ListarEventos(int idCategoria) {
         return eventoDAO.ListarEventos(idCategoria);
     }
+
+    @Override
+    public List<Evento> MostrarDestacados(){
+        return  eventoDAO.MostrarDestacados();
+    }
+
 }

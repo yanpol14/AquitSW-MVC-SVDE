@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS evento (
     aforo_disponible  INT,
     imagen_url        VARCHAR(255),
     estado            INT            NOT NULL DEFAULT 1,
+    destacado         INT,
     PRIMARY KEY (id_evento),
     CONSTRAINT fk_evento_categoria FOREIGN KEY (id_categoria)
     REFERENCES categoria(id_categoria)

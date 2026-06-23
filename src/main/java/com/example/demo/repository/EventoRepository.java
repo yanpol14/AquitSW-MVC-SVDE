@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public class EventoRepository implements EventoDAO {
     private final JdbcTemplate jdbcTemplate;
 
-    public EventoRepository(JdbcTemplate jdbcTemplate){
+    public EventoRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -34,9 +34,9 @@ public class EventoRepository implements EventoDAO {
         );
         Categoria categoria = new Categoria(
                 rs.getInt("id_categoria"),
-                rs.getString("nombre_categoria"),
-                rs.getString("desc_categoria"),
-                rs.getInt("estado_categoria") == 1
+                rs.getString("nombre_c"),
+                rs.getString("desc_c"),
+                rs.getInt("estado_c") == 1
         );
 
         evento.setCategoria(categoria);
@@ -47,7 +47,6 @@ public class EventoRepository implements EventoDAO {
     // CORREGIDO: Añadida la lógica de filtrado dinámico
     public List<Evento> ListarEventos(int idCategoria) {
         if (idCategoria <= 0) {
-            // Trae todos los eventos activos
             String query = "SELECT e.*, " +
                     "c.nombre AS nombre_categoria, " +
                     "c.descripcion AS desc_categoria, " +
@@ -57,7 +56,6 @@ public class EventoRepository implements EventoDAO {
                     "WHERE e.estado = 1";
             return jdbcTemplate.query(query, EventoRowMapper);
         } else {
-            // Filtra exclusivamente por el ID de la categoría seleccionada
             String query = "SELECT e.*, " +
                     "c.nombre AS nombre_categoria, " +
                     "c.descripcion AS desc_categoria, " +
@@ -67,5 +65,17 @@ public class EventoRepository implements EventoDAO {
                     "WHERE e.id_categoria = ? AND e.estado = 1";
             return jdbcTemplate.query(query, EventoRowMapper, idCategoria);
         }
+    }
+
+    @Override
+    public List<Evento> MostrarDestacados() {
+        String query = "SELECT e.*, " +
+                "c.nombre AS nombre_c, " +
+                "c.descripcion AS desc_c, " +
+                "c.estado AS estado_c " +
+                "FROM evento e " +
+                "INNER JOIN categoria c ON e.id_categoria = c.id_categoria " +
+                "WHERE e.destacado = 1 AND e.estado = 1";
+        return jdbcTemplate.query(query, EventoRowMapper);
     }
 }
