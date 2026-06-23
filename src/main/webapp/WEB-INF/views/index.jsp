@@ -108,21 +108,21 @@
 
         <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
 
-            <a href="/index?idCategoria=0"
-               class="btn btn-outline-warning fw-bold ${param.idCategoria == null || param.idCategoria == 0 ? 'active' : ''}">
+            <button type="button" data-id="0"
+               class="btn-filtro btn btn-outline-warning fw-bold active">
                Todos
-            </a>
+            </button>
 
             <c:forEach items="${listCategorias}" var="cat">
-                <a href="/index?idCategoria=${cat.id_categoria}"
-                   class="btn btn-outline-warning fw-bold ${param.idCategoria == cat.id_categoria ? 'active' : ''}">
+                <button type="button" data-id="${cat.id_categoria}"
+                   class="btn-filtro btn btn-outline-warning fw-bold">
                    ${cat.nombre}
-                </a>
+                </button>
             </c:forEach>
 
         </div>
 
-       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mb-5">
+       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mb-5" id="contenedor-tarjetas">
            <c:forEach items="${listEvento}" var="eventos">
                <div class="col">
                    <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden bg-white">
@@ -155,3 +155,62 @@
 
 <%-- Inclusión del Footer --%>
 <jsp:include page="componentes/footer.jsp" />
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const botones = document.querySelectorAll(".btn-filtro");
+    const contenedor = document.getElementById("contenedor-tarjetas");
+
+    botones.forEach(boton => {
+        boton.addEventListener("click", function () {
+            // Cambiar la clase activa visual en los botones sin mover la página
+            botones.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const idCategoria = this.getAttribute("data-id");
+
+            // Llamada al endpoint de Spring en segundo plano
+            fetch('/api/eventos?idCategoria=' + idCategoria)
+                .then(response => response.json())
+                .then(eventos => {
+                    contenedor.innerHTML = ""; // Limpiar tarjetas anteriores
+
+                    if (eventos.length === 0) {
+                        contenedor.innerHTML = '<div class="text-center w-100 my-5 text-muted"><p class="fs-5">No hay eventos disponibles en esta categoría.</p></div>';
+                        return;
+                    }
+
+                    // Renderizar las nuevas tarjetas dinámicamente sin mover la pantalla
+                    eventos.forEach(ev => {
+                        const categoriaNombre = ev.categoria && ev.categoria.nombre ? ev.categoria.nombre : "General";
+
+                        const cardHtml = `
+                           <div class="col">
+                               <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden bg-white">
+                                   <img src="\${ev.imagen_url}" class="card-img-top" alt="\${ev.titulo}" style="height: 220px; object-fit: cover;">
+                                   <div class="card-body d-flex flex-column p-3">
+                                       <div class="d-flex justify-content-start mb-2">
+                                           <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1 fw-semibold text-wrap text-end">
+                                               \${categoriaNombre}
+                                           </span>
+                                       </div>
+                                       <h5 class="card-title fw-bold fs-6 text-dark mb-2">\${ev.titulo}</h5>
+                                       <p class="card-text text-muted small mb-1">
+                                           <i class="bi bi-calendar3 me-1"></i> \${ev.fecha_evento}
+                                       </p>
+                                       <p class="fw-bold text-danger fs-5 mt-auto mb-3">S/ \${ev.precio}</p>
+                                       <a href="#" class="btn btn-warning text-dark fw-bold btn-sm w-100 rounded-pill py-2">
+                                           Adquirir Entradas
+                                       </a>
+                                   </div>
+                               </div>
+                           </div>
+                        `;
+                        contenedor.innerHTML += cardHtml;
+                    });
+                })
+                .catch(error => console.error("Error al filtrar eventos:", error));
+        });
+    });
+});
+</script>
