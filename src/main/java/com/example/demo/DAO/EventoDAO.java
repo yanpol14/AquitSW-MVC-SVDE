@@ -7,5 +7,5 @@ public interface EventoDAO {
 
     List<Evento> MostrarDestacados();
 
-    List<Evento> ListarEventos(int idCategoria);
+    List<Evento> ListarEventosPorCategoria(int idCategoria);
 }

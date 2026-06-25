@@ -13,15 +13,14 @@ public class EventoServiceImpl implements EventoService {
     public EventoServiceImpl(EventoDAO eventoDAO) {
         this.eventoDAO = eventoDAO;
     }
-
-    @Override
-    public List<Evento> ListarEventos(int idCategoria) {
-        return eventoDAO.ListarEventos(idCategoria);
-    }
-
     @Override
     public List<Evento> MostrarDestacados(){
         return  eventoDAO.MostrarDestacados();
+    }
+
+    @Override
+    public List<Evento> ListarEventosPorCategoria(int idCategoria) {
+        return eventoDAO.ListarEventosPorCategoria(idCategoria);
     }
 
 }
