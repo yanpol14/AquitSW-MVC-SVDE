@@ -43,6 +43,35 @@
             </div>
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-start" id="contenedor-peliculas-filtradas">
+                <c:forEach items="${listPorCategoria}" var="evento">
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden bg-white">
+                            <img src="${evento.imagen_url}" class="card-img-top" alt="${evento.titulo}" style="height: 220px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column p-3">
+                                <div class="d-flex justify-content-start mb-2">
+                                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1 fw-semibold">
+                                        ${evento.categoria.nombre}
+                                    </span>
+                                </div>
+                                <h5 class="card-title fw-bold fs-6 text-dark mb-2">${evento.titulo}</h5>
+                                <p class="card-text text-muted small mb-1">
+                                    <i class="bi bi-calendar3 me-1"></i> ${evento.fecha_evento}
+                                </p>
+                                <p class="fw-bold text-danger fs-5 mt-auto mb-3">S/ ${evento.precio}</p>
+                                <a href="#" class="btn btn-warning text-dark fw-bold btn-sm w-100 rounded-pill py-2">
+                                    Adquirir Entradas
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+
+                <%-- Mensaje alternativo si la categoría seleccionada no tiene eventos --%>
+                <c:if test="${empty listPorCategoria}">
+                    <div class="col-12 text-center py-5">
+                        <h4 class="text-white opacity-50">No hay eventos disponibles para esta categoría.</h4>
+                    </div>
+                </c:if>
             </div>
 
         </div>

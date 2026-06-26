@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Evento {
     private int id_evento;
-    private int id_categoria;
     private String titulo;
     private String descripcion;
     private LocalDate fecha_evento;
@@ -21,11 +20,10 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(int id_evento, int id_categoria, String titulo, String descripcion,
+    public Evento(int id_evento, String titulo, String descripcion,
             LocalDate fecha_evento, double precio, String lugar, int aforo_total,
-            int aforo_disponible, String imagen_url, boolean estado) {
+            int aforo_disponible, String imagen_url, boolean estado, boolean destacado, Categoria categoria) {
         this.id_evento = id_evento;
-        this.id_categoria = id_categoria;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fecha_evento = fecha_evento;
@@ -35,6 +33,8 @@ public class Evento {
         this.aforo_disponible = aforo_disponible;
         this.imagen_url = imagen_url;
         this.estado = estado;
+        this.destacado = destacado;
+        this.categoria = categoria;
     }
 
     // --- GETTERS Y SETTERS ESTÁNDAR (CamelCase para JSTL) ---
@@ -44,14 +44,6 @@ public class Evento {
 
     public void setId_evento(int id_evento) {
         this.id_evento = id_evento;
-    }
-
-    public int getId_categoria() {
-        return id_categoria;
-    }
-
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
     }
 
     public String getTitulo() {
@@ -122,14 +114,6 @@ public class Evento {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
-    public Categoria getCategoria(){
-        return categoria;
-    }
-
     public void setCategoria(Categoria categoria){
         this.categoria = categoria;
     }
@@ -142,4 +126,11 @@ public class Evento {
         this.destacado = destacado;
     }
 
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public Categoria getCategoria(){
+        return categoria;
+    }
 }

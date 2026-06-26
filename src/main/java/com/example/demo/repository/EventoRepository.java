@@ -1,8 +1,6 @@
 package com.example.demo.repository;
 
-import java.util.List;
-import java.time.LocalDate;
-
+    import java.util.List;
 import com.example.demo.DAO.EventoDAO;
 import com.example.demo.model.Categoria;
 import com.example.demo.model.Evento;
@@ -19,33 +17,31 @@ public class EventoRepository implements EventoDAO {
     }
 
     public final RowMapper<Evento> EventoRowMapper = (rs, rowNum) -> {
-        Evento evento = new Evento(
+        return new Evento(
                 rs.getInt("id_evento"),
-                rs.getInt("id_categoria"),
                 rs.getString("titulo"),
                 rs.getString("descripcion"),
-                rs.getObject("fecha_evento", LocalDate.class),
+                rs.getDate("fecha_evento").toLocalDate(),
                 rs.getDouble("precio"),
                 rs.getString("lugar"),
                 rs.getInt("aforo_total"),
                 rs.getInt("aforo_disponible"),
                 rs.getString("imagen_url"),
-                rs.getInt("estado") == 1
-        );
-        Categoria categoria = new Categoria(
-                rs.getInt("id_categoria"),
-                rs.getString("nombre_c"),
-                rs.getString("desc_c"),
-                rs.getInt("estado_c") == 1
+                rs.getBoolean("estado"),
+                rs.getBoolean("destacado"),
+                new Categoria(
+                        rs.getInt("id_categoria"),
+                        rs.getString("nombre"),
+                        rs.getString("descripcion"),
+                        rs.getBoolean("estado_c")
+                )
         );
 
-        evento.setCategoria(categoria);
-        return evento;
     };
 
     @Override
     public List<Evento> MostrarDestacados() {
-        String query = "SELECT e.*, " +
+        String query = "SELECT e.*," +
                 "c.nombre AS nombre_c, " +
                 "c.descripcion AS desc_c, " +
                 "c.estado AS estado_c " +
@@ -57,23 +53,18 @@ public class EventoRepository implements EventoDAO {
 
     @Override
     public List<Evento> ListarEventosPorCategoria(int idCategoria) {
-        if (idCategoria <= 0) {
-            String query = "SELECT e.*, " +
-                    "c.nombre AS nombre_c, " + // ◄ Corregido para que coincida con el RowMapper
-                    "c.descripcion AS desc_c, " +
-                    "c.estado AS estado_c " +
+        String query;
+        if (idCategoria == 0) {
+            query = "SELECT e.*, c.nombre AS nombre_c, c.descripcion AS desc_c, c.estado AS estado_c " +
                     "FROM evento e " +
                     "INNER JOIN categoria c ON e.id_categoria = c.id_categoria " +
                     "WHERE e.estado = 1";
             return jdbcTemplate.query(query, EventoRowMapper);
         } else {
-            String query = "SELECT e.*, " +
-                    "c.nombre AS nombre_c, " + // ◄ Corregido para que coincida con el RowMapper
-                    "c.descripcion AS desc_c, " +
-                    "c.estado AS estado_c " +
+            query = "SELECT e.*, c.nombre AS nombre_c, c.descripcion AS desc_c, c.estado AS estado_c " +
                     "FROM evento e " +
                     "INNER JOIN categoria c ON e.id_categoria = c.id_categoria " +
-                    "WHERE e.id_categoria = ? AND e.estado = 1";
+                    "WHERE e.estado = 1 AND e.id_categoria = ?";
             return jdbcTemplate.query(query, EventoRowMapper, idCategoria);
         }
     }
