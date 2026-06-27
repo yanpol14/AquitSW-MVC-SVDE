@@ -40,4 +40,56 @@ public class UsuarioRepository implements UsuarioDAO {
         }
     }
 
+    @Override
+    public List<Usuario> ListarTodosUsuarios() {
+        String query = "SELECT * FROM usuario";
+        return jdbcTemplate.query(query, usuarioRowMapper);
+    }
+
+    @Override
+    public Usuario buscarPorid(int id) { // 🌟 ¡Punto y coma corregido!
+        String query = "SELECT * FROM usuario WHERE id_usuario = ?";
+        try {
+            // Usamos queryForObject porque buscamos un único usuario
+            return jdbcTemplate.queryForObject(query, usuarioRowMapper, id);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public void crearUsuario(Usuario usuario) {
+        String query = "INSERT INTO usuario (nombre, apellido_materno, apellido_paterno, email, contrasena, rol, estado, fecha_creacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(query,
+                usuario.getNombre(),
+                usuario.getApellido_materno(),
+                usuario.getApellido_paterno(),
+                usuario.getEmail(),
+                usuario.getContrasena(), // Tu getter mapea a la variable contraseña
+                usuario.getRol(),
+                usuario.getEstado(),
+                usuario.getFecha_creacion()
+        );
+    }
+
+    @Override
+    public void actualizarUsuario(Usuario usuario) {
+        String query = "UPDATE usuario SET nombre = ?, apellido_materno = ?, apellido_paterno = ?, email = ?, contrasena = ?, rol = ?, estado = ? WHERE id_usuario = ?";
+        jdbcTemplate.update(query,
+                usuario.getNombre(),
+                usuario.getApellido_materno(),
+                usuario.getApellido_paterno(),
+                usuario.getEmail(),
+                usuario.getContrasena(),
+                usuario.getRol(),
+                usuario.getEstado(),
+                usuario.getId_usuario()
+        );
+    }
+
+    @Override
+    public void eliminarUsuario(int id) {
+        String query = "DELETE FROM usuario WHERE id_usuario = ?";
+        jdbcTemplate.update(query, id);
+    }
 }

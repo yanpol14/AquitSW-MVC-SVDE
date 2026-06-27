@@ -19,4 +19,29 @@ public class CategoriaServiceImpl implements CategoriaService{
     public List<Categoria> ListarCategoriasActivas(){
         return categoriaDAO.ListarCategoriasActivas();
     }
+
+    @Override
+    public List<Categoria> ListarTodasLasCategorias(){
+        return categoriaDAO.ListarTodasLasCategorias();
+    }
+
+    @Override
+    public void crearCategoria(Categoria categoria){
+        categoriaDAO.crearCategoria(categoria);
+    }
+
+    @Override
+    public Categoria buscarPorId(int id) {
+        return categoriaDAO.buscarPorId(id);
+    }
+
+    @Override
+    public void actualizarCategoria(Categoria categoria) {
+        categoriaDAO.actualizarCategoria(categoria);
+    }
+
+    @Override
+    public void eliminarCategoria(int id) {
+        categoriaDAO.eliminarCategoria(id);
+    }
 }

@@ -23,4 +23,28 @@ public class EventoServiceImpl implements EventoService {
         return eventoDAO.ListarEventosPorCategoria(idCategoria);
     }
 
+    @Override
+    public List<Evento> ListarTodosEventos(){
+        return eventoDAO.ListarTodosEventos();
+    }
+
+    @Override
+    public Evento buscarPorId(int id) {
+        return eventoDAO.buscarPorId(id);
+    }
+
+    @Override
+    public void crearEvento(Evento evento) {
+        eventoDAO.crearEvento(evento);
+    }
+
+    @Override
+    public void actualizarEvento(Evento evento) {
+        eventoDAO.actualizarEvento(evento);
+    }
+
+    @Override
+    public void eliminarEvento(int id) {
+        eventoDAO.eliminarEvento(id);
+    }
 }

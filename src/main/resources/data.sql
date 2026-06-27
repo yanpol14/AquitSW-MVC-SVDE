@@ -3,10 +3,10 @@ INSERT INTO categoria (nombre, descripcion, estado) VALUES
 ('Conciertos', 'Eventos musicales en vivo de diversos géneros.', 1),
 ('Teatro', 'Obras dramáticas, comedia, musicales y microteatro.', 1),
 ('Deportes', 'Partidos de fútbol, baloncesto, tenis y maratones.', 1),
-('Cine', 'Estrenos, festivales de cine y proyecciones especiales.', 1),
+('Cine', 'Estrenos, festivales de cine y proyecciones especiales.', 0),
 ('Festivales', 'Grandes festivales al aire libre de música y cultura.', 1),
 ('Conferencias', 'Charlas magistrales, congresos y seminarios corporativos.', 1),
-('Infantil', 'Espectáculos, shows de magia y obras para niños.', 1),
+('Infantil', 'Espectáculos, shows de magia y obras para niños.', 0),
 ('Exposiciones', 'Galerías de arte, museos y ferias tecnológicas.', 1),
 ('Danza', 'Ballet clásico, danza contemporánea y folklore.', 1);
 

@@ -18,4 +18,30 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario bucarPorEmail(String email){
         return usuarioDAO.bucarPorEmail(email);
     }
+
+    @Override
+    public List<Usuario> ListarTodosUsuarios() { // 🌟 Nuevo método implementado
+        return usuarioDAO.ListarTodosUsuarios();
+    }
+
+    @Override
+    public Usuario buscarPorid(int id){
+        return usuarioDAO.buscarPorid(id);
+    }
+
+    @Override
+    public void crearUsuario(Usuario usuario){
+        usuarioDAO.crearUsuario(usuario);
+    }
+
+    @Override
+    public void actualizarUsuario(Usuario usuario){
+        usuarioDAO.actualizarUsuario(usuario);
+    }
+
+    @Override
+    public void eliminarUsuario(int id){
+        usuarioDAO.eliminarUsuario(id);
+    }
+
 }

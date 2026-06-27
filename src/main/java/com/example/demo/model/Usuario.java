@@ -29,7 +29,7 @@ public class Usuario {
         this.fecha_creacion = fecha_creacion;
     }
 
-    public int getId_usuariouser() {
+    public int getId_usuario() {
         return id_usuario;
     }
 

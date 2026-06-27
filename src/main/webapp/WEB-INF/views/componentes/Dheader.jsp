@@ -22,27 +22,27 @@
     </div>
     <ul class="nav nav-pills flex-column mb-auto gap-2">
         <li>
-            <a href="/dashboard" class="nav-link ${pestana == 'metricas' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
+            <a href="/dashboard/metricas" class="nav-link ${pestana == 'metricas' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
                 <i class="bi bi-graph-up me-2"></i>Métricas
             </a>
         </li>
         <li>
-            <a href="/dashboard/categorias" class="nav-link ${pestana == 'categorias' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
+            <a href="/categoria/list" class="nav-link ${pestana == 'categorias' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
                 <i class="bi bi-tags me-2"></i>Categorías
             </a>
         </li>
         <li>
-            <a href="/dashboard/eventos" class="nav-link ${pestana == 'eventos' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
+            <a href="/evento/list" class="nav-link ${pestana == 'eventos' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
                 <i class="bi bi-calendar-event me-2"></i>Eventos
             </a>
         </li>
         <li>
-            <a href="/dashboard/tickets" class="nav-link ${pestana == 'tickets' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
+            <a href="/ticket/list" class="nav-link ${pestana == 'tickets' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
                 <i class="bi bi-ticket-perforated me-2"></i>Tickets
             </a>
         </li>
         <li>
-            <a href="/dashboard/usuarios" class="nav-link ${pestana == 'usuarios' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
+            <a href="/usuario/list" class="nav-link ${pestana == 'usuarios' ? 'active bg-success text-white' : 'bg-success-subtle text-dark'} w-100 text-start rounded-pill py-2">
                 <i class="bi bi-people me-2"></i>Usuarios
             </a>
         </li>

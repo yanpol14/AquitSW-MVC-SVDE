@@ -5,5 +5,15 @@ import com.example.demo.model.Categoria;
 
 public interface CategoriaService {
 
-     public List<Categoria> ListarCategoriasActivas();
+     List<Categoria> ListarCategoriasActivas();
+
+     List<Categoria> ListarTodasLasCategorias();
+
+     void crearCategoria(Categoria categoria);
+
+     Categoria buscarPorId(int id);
+
+     void actualizarCategoria(Categoria categoria);
+
+     void eliminarCategoria(int id);
 }
