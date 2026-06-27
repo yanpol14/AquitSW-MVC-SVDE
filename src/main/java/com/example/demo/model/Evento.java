@@ -20,9 +20,9 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(int id_evento, String titulo, String descripcion,
-            LocalDate fecha_evento, double precio, String lugar, int aforo_total,
-            int aforo_disponible, String imagen_url, boolean estado, boolean destacado, Categoria categoria) {
+    public Evento(int id_evento, String titulo, String descripcion, LocalDate fecha_evento,
+                  double precio, String lugar, int aforo_total, int aforo_disponible, String imagen_url,
+                  boolean estado, boolean destacado, Categoria categoria) {
         this.id_evento = id_evento;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -37,7 +37,6 @@ public class Evento {
         this.categoria = categoria;
     }
 
-    // --- GETTERS Y SETTERS ESTÁNDAR (CamelCase para JSTL) ---
     public int getId_evento() {
         return id_evento;
     }
